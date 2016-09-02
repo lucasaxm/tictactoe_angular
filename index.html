@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>TicTacToe</title>
+        <meta name="keywords" content="boa tarde">
+        <meta name="author" content="Lucas Affonso X. de Morais">
+        <link rel="icon" type="image/png" href="img/tictactoe.png">
+        <link rel="stylesheet" href="css/index.css" type="text/css" />
+    </head>
+    <body ng-app="TicTacToe">
+        
+        <div id="board" ng-controller="BoardController">
+            <div ng-if="gameIsOver" id="congrats">
+                <h1 ng-if="winner==userMoveSymbol" >You Win!</h1>
+                <h1 ng-if="winner==botMoveSymbol" >CPU Wins!</h1>
+                <h1 ng-if="winner==null" >Draw!</h1>
+            </div>
+            <div class="row">
+                <button ng-click="move(0,0)" class="square" id="square00"></button>
+                <button ng-click="move(0,1)" class="square" id="square01"></button>
+                <button ng-click="move(0,2)" class="square" id="square02"></button>
+            </div>
+            <div class="row">
+                <button ng-click="move(1,0)" class="square" id="square10"></button>
+                <button ng-click="move(1,1)" class="square" id="square11"></button>
+                <button ng-click="move(1,2)" class="square" id="square12"></button>
+            </div>
+            <div class="row">
+                <button ng-click="move(2,0)" class="square" id="square20"></button>
+                <button ng-click="move(2,1)" class="square" id="square21"></button>
+                <button ng-click="move(2,2)" class="square" id="square22"></button>
+            </div>
+            <div class="margintop" id="score">
+                <h3>Score</h3>
+                <p>You: {{userScore}}.</p>
+                <p>CPU: {{botScore}}.</p>
+                <button ng-click="clearScore()">Zerar</button>
+            </div>
+            <button class="margintop" ng-if="gameIsOver" ng-click="init()" class="animate-if">Play Again!</button>
+        </div>
+        
+        <!--jQuery 3.1.0-->
+        <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+        
+        <!--Angular 1.5.6-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        
+        <!--Underscore 1.8.3-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
